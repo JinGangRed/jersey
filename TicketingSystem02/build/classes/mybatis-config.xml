@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://www.mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- properties配置 -->
+	<!-- 这些属性都是可外部配置且可动态替换的，
+	既可以在典型的 Java 属性文件中配置，
+	亦可通过 properties 元素的子元素来传递。 -->
+	<properties resource="db.properties">
+	<!-- 可在此属性中动态替换properties中的对应属性 -->
+	<!--  	
+		<property name="" value=""/>
+	-->
+	</properties>
+	<!-- <settings>
+          <setting name="mapUnderscoreToCamelCase" value="true" />  
+	</settings> -->
+	<typeAliases >
+  		<typeAlias type="cn.nuist.chenlong.pojo.Ticket" alias="Ticket"/>
+  		<typeAlias type="cn.nuist.chenlong.pojo.User" alias="User"/>
+  	</typeAliases>
+	<!-- setting属性会修改Mybatis在运行时的行为方式 -->
+	<!-- typeAliases别名是为Java类型命名一个短的名字 -->
+
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+  <mappers>
+   <mapper resource="cn/nuist/chenlong/dao/ticketmapper.xml"/>
+   <mapper resource="cn/nuist/chenlong/dao/usermapper.xml"/>
+  </mappers>
+
+
+
+</configuration>

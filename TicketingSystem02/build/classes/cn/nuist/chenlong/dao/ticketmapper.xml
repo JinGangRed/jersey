@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--SQL映射的xml文件  -->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.nuist.chenlong.dao.TicketDAO">
+	<select id="selectPerson" parameterType="User" resultType="User">
+		select * from person where id = #{id}
+	</select>
+</mapper>
